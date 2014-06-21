@@ -1,4 +1,4 @@
-novoSite
+Site Boilerplate
 ========
 
-Arquivo inicial para criar um site
+Base de arquivos iniciais para a criação de um site.
