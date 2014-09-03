@@ -1,2 +1,0 @@
-<!-- Código do Footer-->
-</html>

@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  <Jefferson Daniel> -- <Front-end> -- <twitter.com/jeffersondss_> -- <github.com/jeffersondanielss>
+
+# THANKS
+
+  <name>
+
+# TECHNOLOGY COLOPHON
+
+  HTML5, CSS3, RESPONSIVE WEB DESIGN
