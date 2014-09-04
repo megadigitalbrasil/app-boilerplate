@@ -6,7 +6,7 @@ Arquivos base para desenvolvimento de sites e temas para wordpress.
 Dependencias
 ----
 
-- [Ruby](http://rubyonrails.org/)
+- [Ruby](http://www.rubyinstaller.org/)
 - [NodeJs](http://nodejs.org/)
 - [GruntJs](gruntjs.com/)
 - [SASS](http://sass-lang.com/)
