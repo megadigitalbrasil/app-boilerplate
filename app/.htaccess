@@ -6,6 +6,22 @@
 # this logic there: http://httpd.apache.org/docs/current/howto/htaccess.html.
 
 # ##############################################################################
+# # MODO Menutenção                                                            #
+# ##############################################################################
+
+# CODIGO PARA REDIRECIONAMENTO PARA PAGINA DE MANUTENÇÂO
+#<IfModule mod_rewrite.c>
+# RewriteEngine on
+# RewriteCond %{REMOTE_ADDR} !^186\.231\.158\.190
+# RewriteCond %{REQUEST_URI} !/maintenance.html$ [NC]
+# RewriteCond %{REQUEST_URI} !\.(jpe?g?|png|gif) [NC]
+# RewriteRule .* /maintenance.html [R=302,L]
+#</IfModule>
+
+## APAGAR OS "#" ACIMA E LIBERAR ACESSO PELO IP
+
+
+# ##############################################################################
 # # CROSS-ORIGIN RESOURCE SHARING (CORS)                                       #
 # ##############################################################################
 

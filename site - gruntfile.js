@@ -100,7 +100,7 @@ module.exports = function( grunt ) {
 
         { 
           cwd: 'app',
-          src: ['apple-touch-icon-precomposed.png', '.htaccess', '*.txt', 'manifest.webapp'],
+          src: ['apple-touch-icon-precomposed.png', '.htaccess', '*.txt', 'manutencao.html', 'manifest.webapp'],
           dest:'app/dist',
           expand: true 
         },
@@ -109,6 +109,13 @@ module.exports = function( grunt ) {
           cwd: 'app/assets/_js',
           src:'modernizr.min.js',
           dest:'app/dist/js',
+          expand: true 
+        },
+
+        { 
+          cwd: 'app/images/',
+          src:'*.svg',
+          dest:'app/dist/images',
           expand: true 
         },
       ]
@@ -146,6 +153,20 @@ module.exports = function( grunt ) {
         }
     }, //browser-sync
 
+
+    'ftp-deploy': {
+      build: {
+        auth: {
+          host: 'ftp.host', // host do servidor
+          // port: 21,
+          authKey: 'key1' // key do arquivo de password do plugin
+        },
+        src: 'app/dist/', // Pasta de onde serão enviados os arquivos
+        dest: '/', // Pasta de destino no servidor Ex.: Httpdocs/Public_html
+        // exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp']
+      }
+    }, //ftp deploy
+
   });
 
 
@@ -157,6 +178,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
   grunt.loadNpmTasks( 'grunt-contrib-copy' );
   grunt.loadNpmTasks( 'grunt-browser-sync' );
+  grunt.loadNpmTasks('grunt-ftp-deploy');
   
 
 
@@ -168,5 +190,8 @@ module.exports = function( grunt ) {
 
   // Tarefa para Watch
   grunt.registerTask( 'w', [ 'watch' ] );
+
+  // Deploy -  Mandando os arquivos de /dist para o servidor
+  grunt.registerTask( 'deploy', [ 'ftp-deploy' ] );
 
 };
