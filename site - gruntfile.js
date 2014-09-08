@@ -90,68 +90,50 @@ module.exports = function( grunt ) {
 
     copy: {
       main: {
-      files: [
-        {
-          cwd: 'app/fonts',  // set working folder / root to copy
-          src: '**/*',           // copy all files and subfolders
-          dest: 'app/dist/fonts',    // destination folder
-          expand: true           // required when using cwd
-        },
+        files: [
+          {
+            cwd: 'app/fonts',  // set working folder / root to copy
+            src: '**/*',           // copy all files and subfolders
+            dest: 'app/dist/fonts',    // destination folder
+            expand: true           // required when using cwd
+          },
 
-        { 
-          cwd: 'app',
-          src: ['apple-touch-icon-precomposed.png', '.htaccess', '*.txt', 'manutencao.html', 'manifest.webapp'],
-          dest:'app/dist',
-          expand: true 
-        },
+          { 
+            cwd: 'app',
+            src: ['apple-touch-icon-precomposed.png', '.htaccess', '*.txt', 'manutencao.html', 'manifest.webapp'],
+            dest:'app/dist',
+            expand: true 
+          },
 
-        { 
-          cwd: 'app/assets/_js',
-          src:'modernizr.min.js',
-          dest:'app/dist/js',
-          expand: true 
-        },
+          { 
+            cwd: 'app/assets/_js',
+            src:'modernizr.min.js',
+            dest:'app/dist/js',
+            expand: true 
+          },
 
-        { 
-          cwd: 'app/images/',
-          src:'*.svg',
-          dest:'app/dist/images',
-          expand: true 
-        },
-      ]
-    }
-  }, // copy
+          { 
+            cwd: 'app/images/',
+            src:'*.svg',
+            dest:'app/dist/images',
+            expand: true 
+          },
+        ]
+      }
+    }, // copy
 
-   browserSync: {
-        files: {
-
-            // Aplicando o recurso de Live Reload nos seguintes arquivos
+    browserSync: {
+      dev: {
+          bsFiles: {
             src : [
-                'app/dist/css/*.css',
-                'app/dist/*.html'
-            ],
-
-        },
-        options: {
-
-            // Atribuíndo um diretório base
-            server: {
-                // Definindo um IP manualmente
-                host : "localhost/",
-                baseDir: "app/dist/"
-            },
-
-            // Integrando com a tarefa "watch"
-            watchTask: true,
-
-            // Sincronizando os eventos entre os dispositívos
-            ghostMode: {
-                scroll: true,
-                links: true,
-                forms: true
-            }
-        }
-    }, //browser-sync
+            'app/dist/**/*',
+            ]
+          },
+          options: {
+            proxy: "localhost/Projetos/app-boilerplate-pd/app/dist/"
+          }
+      }
+    }, // Browser-sync: sync navigation and file changes
 
 
     'ftp-deploy': {
