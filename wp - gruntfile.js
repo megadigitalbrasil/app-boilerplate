@@ -70,7 +70,7 @@ module.exports = function( grunt ) {
           'app/*.php'
         ],
 
-        tasks : [ 'uglify', 'sass', 'copy', 'browserSync' ]
+        tasks : [ 'uglify', 'sass', 'copy' ]
       }
     }, // watch
 
@@ -175,13 +175,16 @@ module.exports = function( grunt ) {
 
 
   // Tarefas que serão executadas
-  grunt.registerTask( 'default', [ 'sass', 'uglify', 'copy', 'browserSync' ] );
+  grunt.registerTask( 'default', [ 'sass', 'uglify', 'copy' ] );
 
   // Tarefa para Watch
   grunt.registerTask( 'img', [ 'imagemin' ] );
 
   // Tarefa para Watch
   grunt.registerTask( 'w', [ 'watch' ] );
+
+  // Sicronizando browsers
+  grunt.registerTask( 'serve', [ 'browserSync' ] );
 
   // Deploy -  Mandando os arquivos de /dist para o servidor
   grunt.registerTask( 'deploy', [ 'ftp-deploy' ] );
