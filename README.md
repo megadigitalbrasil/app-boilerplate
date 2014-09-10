@@ -27,6 +27,10 @@ Assistir arquivos (watch)
 Comprimir imagens
 
     grunt img
+
+Sicronizar browsers
+
+    grunt serve
       
 Deploy
     
@@ -36,7 +40,7 @@ Deploy
 Observações
 ----
 
-- Retirar prefixo do gruntfile.js desejado.
 - Configurar .ftppass para fazer deploy
-- Configurar gruntfile.js para wordpress com o caminho do tema desenvolvido.
+- Mudar a pasta /dest quando for desenvolver temas para wordpress
+- Configurar caminho do projeto no browserSync dentro do gruntfile.js
 

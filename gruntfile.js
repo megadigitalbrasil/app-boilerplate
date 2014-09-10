@@ -4,6 +4,20 @@ module.exports = function( grunt ) {
 
   grunt.initConfig({
 
+    paths: {
+      app:    'app/',
+      assets: 'assets/',
+      fonts:  'fonts/',
+      sass:   'sass/',
+      img:    'images/',
+      js:     'js/',
+      css:    'css/',
+      wp:     'wp/',
+      prod:   'dist/',
+      // prod:   'wp/wp-content/themes/vtex-theme', // Wordpress
+
+    }, // Pastas do projeto
+
     htmlmin: {
       dist: {
         options: {
@@ -11,9 +25,9 @@ module.exports = function( grunt ) {
           collapseWhitespace: true
         },
         expand: true,
-        cwd: 'app',
+        cwd: '<%= paths.app %>',
         src: ['*.html'],
-        dest: 'app/dist'
+        dest: '<%= paths.app %><%= paths.prod %>'
       }
     }, // htmlmin
 
@@ -23,7 +37,7 @@ module.exports = function( grunt ) {
       dist : {
         options : { style : 'compressed' },
         files : {
-          'app/dist/css/style.css' : 'app/assets/_sass/style.scss'
+          '<%= paths.app %><%= paths.prod %><%= paths.css %>style.css' : '<%= paths.app %><%= paths.assets %><%= paths.sass %>style.scss'
         }
       }
     }, // sass 
@@ -37,7 +51,7 @@ module.exports = function( grunt ) {
 
       my_target : {
         files : {
-          'app/dist/js/main.js' : [ 'app/assets/_js/script.js' ]
+          '<%= paths.app %><%= paths.prod %><%= paths.js %>main.js' : [ '<%= paths.app %><%= paths.assets %><%= paths.js %>script.js' ]
         }
       }
     }, // uglify
@@ -52,9 +66,9 @@ module.exports = function( grunt ) {
           files: [
               {
                   expand: true,
-                  cwd: './app/images/',
+                  cwd: '<%= paths.app %><%= paths.img %>',
                   src: ['**/*.png'],
-                  dest: './app/dist/images',
+                  dest: '<%= paths.app %><%= paths.prod %><%= paths.img %>',
                   ext: '.png'
               }
           ]
@@ -66,9 +80,9 @@ module.exports = function( grunt ) {
           files: [
               {
                   expand: true,
-                  cwd: './app/images/',
+                  cwd: '<%= paths.app %><%= paths.img %>',
                   src: ['**/*.jpg'],
-                  dest: './app/dist/images',
+                  dest: '<%= paths.app %><%= paths.prod %><%= paths.img %>',
                   ext: '.jpg'
               }
           ]
@@ -78,10 +92,9 @@ module.exports = function( grunt ) {
     watch : {
       dist : {
         files : [
-          'app/assets/_js/**/*',
-          'app/assets/_sass/**/*',
-          'app/images/**/*',
-          'app/*.html'
+          '<%= paths.app %><%= paths.assets %><%= paths.js %>**/*',
+          '<%= paths.app %><%= paths.assets %><%= paths.sass %>**/*',
+          '<%= paths.app %>*.html'
         ],
 
         tasks : [ 'htmlmin', 'uglify', 'sass', 'copy' ]
@@ -92,30 +105,30 @@ module.exports = function( grunt ) {
       main: {
         files: [
           {
-            cwd: 'app/fonts',  // set working folder / root to copy
+            cwd: '<%= paths.app %><%= paths.fonts %>',  // set working folder / root to copy
             src: '**/*',           // copy all files and subfolders
-            dest: 'app/dist/fonts',    // destination folder
+            dest: '<%= paths.app %><%= paths.prod %><%= paths.fonts %>',    // destination folder
             expand: true           // required when using cwd
           },
 
           { 
-            cwd: 'app',
-            src: ['apple-touch-icon-precomposed.png', '.htaccess', '*.txt', 'manutencao.html', 'manifest.webapp'],
-            dest:'app/dist',
+            cwd: '<%= paths.app %>',
+            src: ['apple-touch-icon-precomposed.png', '.htaccess', '*.php', '*.css', '*.txt', 'manutencao.html', 'manifest.webapp'],
+            dest:'<%= paths.app %><%= paths.prod %>',
             expand: true 
           },
 
           { 
-            cwd: 'app/assets/_js',
+            cwd: '<%= paths.app %><%= paths.assets %><%= paths.js %>',
             src:'modernizr.min.js',
-            dest:'app/dist/js',
+            dest:'<%= paths.app %><%= paths.prod %><%= paths.js %>',
             expand: true 
           },
 
           { 
-            cwd: 'app/images/',
+            cwd: '<%= paths.app %><%= paths.images %>',
             src:'*.svg',
-            dest:'app/dist/images',
+            dest:'<%= paths.app %><%= paths.prod %><%= paths.images %>',
             expand: true 
           },
         ]
@@ -126,11 +139,11 @@ module.exports = function( grunt ) {
       dev: {
           bsFiles: {
             src : [
-            'app/dist/**/*',
+            '<%= paths.app %><%= paths.prod %>**/*',
             ]
           },
           options: {
-            proxy: "localhost/Projetos/app-boilerplate/app/dist/"
+            proxy: "localhost/seu-projetos"
           }
       }
     }, // Browser-sync: sync navigation and file changes
@@ -143,7 +156,7 @@ module.exports = function( grunt ) {
           // port: 21,
           authKey: 'key1' // key do arquivo de password do plugin
         },
-        src: 'app/dist/', // Pasta de onde serão enviados os arquivos
+        src: '<%= paths.app %><%= paths.wp %>', // Pasta de onde serão enviados os arquivos
         dest: '/', // Pasta de destino no servidor Ex.: Httpdocs/Public_html
         // exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp']
       }
