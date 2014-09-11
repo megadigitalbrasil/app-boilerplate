@@ -3,7 +3,7 @@ APP Boilerplate
 
 Arquivos base para desenvolvimento de sites e temas para wordpress.
 
-Dependencias
+Requisitos
 ----
 
 - [Ruby](http://www.rubyinstaller.org/)

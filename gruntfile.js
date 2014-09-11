@@ -94,7 +94,8 @@ module.exports = function( grunt ) {
         files : [
           '<%= paths.app %><%= paths.assets %><%= paths.js %>**/*',
           '<%= paths.app %><%= paths.assets %><%= paths.sass %>**/*',
-          '<%= paths.app %>*.html'
+          '<%= paths.app %>*.html',
+          '<%= paths.app %>*.php'
         ],
 
         tasks : [ 'htmlmin', 'uglify', 'sass', 'copy' ]
@@ -180,10 +181,10 @@ module.exports = function( grunt ) {
   // Tarefas que serão executadas
   grunt.registerTask( 'default', [ 'htmlmin', 'sass', 'uglify', 'copy' ] );
 
-  // Tarefa para Watch
+  // Comprimir imagens
   grunt.registerTask( 'img', [ 'imagemin' ] );
 
-  // Tarefa para Watch
+  // Assistir arquivos
   grunt.registerTask( 'w', [ 'watch' ] );
 
   // Sicronizando browsers
