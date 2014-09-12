@@ -174,7 +174,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
   grunt.loadNpmTasks( 'grunt-contrib-copy' );
   grunt.loadNpmTasks( 'grunt-browser-sync' );
-  grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks( 'grunt-ftp-deploy' );
   
 
 
