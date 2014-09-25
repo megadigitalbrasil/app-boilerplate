@@ -144,7 +144,7 @@ module.exports = function( grunt ) {
             ]
           },
           options: {
-            proxy: "localhost/seu-projetos"
+            proxy: "localhost/project"
           }
       }
     }, // Browser-sync: sync navigation and file changes
@@ -155,7 +155,7 @@ module.exports = function( grunt ) {
         auth: {
           host: 'ftp.host', // host do servidor
           // port: 21,
-          authKey: 'key1' // key do arquivo de password do plugin
+          authKey: 'key' // key do arquivo de password do plugin
         },
         src: '<%= paths.app %><%= paths.wp %>', // Pasta de onde serão enviados os arquivos
         dest: '/', // Pasta de destino no servidor Ex.: Httpdocs/Public_html

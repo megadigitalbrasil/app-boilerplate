@@ -7,8 +7,8 @@
     "128": "/images/touch/icon-128x128.png"
   },
   "developer": {
-    "name": "Jefferson Daniel",
-    "url": "github.com/jeffersondanielss"
+    "name": "dev_name",
+    "url": "github.com/dev_name"
   },
   "installs_allowed_from": [
     "*"

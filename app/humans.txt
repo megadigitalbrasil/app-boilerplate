@@ -3,7 +3,8 @@
 
 # TEAM
 
-  <Jefferson Daniel> -- <Front-end> -- <twitter.com/jeffersondss_> -- <github.com/jeffersondanielss>
+  <dev> -- <Front-end> -- <twitter.com/name> -- <github.com/name>
+  <dev> -- <Front-end> -- <twitter.com/name> -- <github.com/name>
 
 # THANKS
 
